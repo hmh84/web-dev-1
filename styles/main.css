@@ -1,0 +1,38 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: sans-serif;
+	color: black;
+}
+
+body {
+	padding: 10px;
+}
+
+.page-title {
+	font-weight: bold;
+	color: rgb(0, 110, 178);
+}
+
+.pokemon-card {
+	background-color: rgb(218, 81, 7);
+	margin-bottom: 10px;
+	width: 250px;
+	height: 350px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.pokemon-name,
+.pokemon-type {
+	color: white;
+}
+
+.pokemon-image {
+	width: 100%;
+	margin-top: 10px;
+}
