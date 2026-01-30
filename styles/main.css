@@ -4,6 +4,11 @@
 
 :root {
     --elevation-1: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    --elevation-2: rgba(0, 0, 0, 0.24) 0px 6px 20px;
+    --primary-color: rgb(255, 151, 119);
+    --secondary-color: rgb(252, 59, 0);
+    --primary-font-color: #000000;
+    --secondary-font-color: rgb(118, 118, 118);
 }
 
 /* ----- VARIABLES END ----- */
@@ -16,31 +21,32 @@ html {
 
 /* ----- INHERITED END ----- */
 
+/* ----- UTILITIES START ----- */
+
+[hidden] {
+    display: none !important;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+/* ----- UTILITIES END ----- */
+
 header {
-    background-color: rgb(255, 151, 119);
+    background-color: var(--primary-color);
     padding: 1rem;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
 }
 
 main {
     margin-bottom: 1rem;
-}
-
-.project-card {
-    box-shadow: var(--elevation-1);
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    height: 15rem;
-    overflow: hidden;
-    width: 300px;
-
-    .project-image {
-        width: unset;
-        height: 12rem;
-    }
-
-    .project-title {
-        color: #000000;
-    }
 }
 
 section {
@@ -51,15 +57,75 @@ section {
         margin-bottom: 2rem;
         font-weight: bold;
         text-align: center;
+        width: 100%;
     }
 }
 
 #section-1 {
-    background-color: rgb(252, 59, 0);
+    background-color: var(--secondary-color);
     color: #ffffff;
     min-height: 100vh;
     padding-top: 50vh;
     text-align: center;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.project-card {
+    box-shadow: var(--elevation-1);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    height: 15rem;
+    overflow: hidden;
+    width: 300px;
+
+    &:hover {
+        box-shadow: var(--elevation-2);
+    }
+
+    .project-image {
+        width: unset;
+        height: 12rem;
+    }
+
+    .project-title {
+        color: var(--primary-font-color);
+    }
+}
+
+/* Modal/Dialog */
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal {
+        position: relative;
+        width: 90%;
+        height: 90%;
+        background-color: #ffffff;
+        overflow: scroll;
+    }
+
+    button {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
 }
 
 .review-list {
@@ -70,16 +136,17 @@ section {
 .review-item {
     margin-bottom: 0.5rem;
     margin-left: 1rem;
-    color: rgb(118, 118, 118);
+    color: var(--secondary-font-color);
 
     .reviewer-name {
         font-weight: bold;
-        color: #000000;
+        color: var(--primary-font-color);
         margin-bottom: 0.25rem;
     }
 }
 
 footer {
+    display: flex;
     padding: 1rem;
     background-color: rgb(40, 40, 40);
     color: white;
@@ -111,3 +178,9 @@ h3 {
 }
 
 /* ----- STANDARDS END ----- */
+
+@media (orientation: portrait) {
+    html {
+        font-size: 5rem;
+    }
+}
